@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "28e7620b-4c21-4507-802e-d31b4f1a51c8",
-		"name": "node_week4-heroku",
+		"name": "metawall-heroku",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "13088586"
 	},
@@ -36,7 +36,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"content\": \"貼文發文測試2\",\n    \"user\": \"62a38dfa56782db9bc0b580c\"\n}",
+							"raw": "{\n    \"content\": \"貼文發文測試\",\n    \"user\": \"62a38dfa56782db9bc0b580c\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -64,7 +64,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://polar-wave-20436.herokuapp.com/posts/:_id",
+							"raw": "https://polar-wave-20436.herokuapp.com/posts/:id",
 							"protocol": "https",
 							"host": [
 								"polar-wave-20436",
@@ -73,11 +73,11 @@
 							],
 							"path": [
 								"posts",
-								":_id"
+								":id"
 							],
 							"variable": [
 								{
-									"key": "_id",
+									"key": "id",
 									"value": null
 								}
 							]
@@ -100,6 +100,42 @@
 							],
 							"path": [
 								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "編輯單筆貼文",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"貼文發文測試 new\",\n    \"user\": \"62a38dfa56782db9bc0b580c\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://polar-wave-20436.herokuapp.com/posts/:id",
+							"protocol": "https",
+							"host": [
+								"polar-wave-20436",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"posts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
 							]
 						}
 					},
