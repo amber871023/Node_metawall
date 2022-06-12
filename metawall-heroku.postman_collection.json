@@ -13,7 +13,13 @@
 					"name": "取得所有貼文",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyYTVjZjFiYzUzZGJlNGVmMDdjYzYxMCIsImlhdCI6MTY1NTAzNTAyMiwiZXhwIjoxNjU1MTIxNDIyfQ.K3pq_8jth2lgpgH-rdKfGxETpDq2JUIOrk0p3clALoU",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "https://polar-wave-20436.herokuapp.com/posts",
 							"protocol": "https",
@@ -33,10 +39,16 @@
 					"name": "新增貼文",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyYTVjZjFiYzUzZGJlNGVmMDdjYzYxMCIsImlhdCI6MTY1NTAzNjIwNiwiZXhwIjoxNjU1MTIyNjA2fQ.rCqho-EYOvC1tu_tM8q06PkJWKoIozV6ya1Adgy7ywU",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"content\": \"貼文發文測試\",\n    \"user\": \"62a38dfa56782db9bc0b580c\"\n}",
+							"raw": "{\n    \"content\": \"貼文發文測試\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -62,7 +74,13 @@
 					"name": "刪除單筆貼文",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyYTVjZjFiYzUzZGJlNGVmMDdjYzYxMCIsImlhdCI6MTY1NTAzNTAyMiwiZXhwIjoxNjU1MTIxNDIyfQ.K3pq_8jth2lgpgH-rdKfGxETpDq2JUIOrk0p3clALoU",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "https://polar-wave-20436.herokuapp.com/posts/:id",
 							"protocol": "https",
@@ -89,7 +107,13 @@
 					"name": "刪除全部貼文",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "https://polar-wave-20436.herokuapp.com/posts",
 							"protocol": "https",
@@ -109,10 +133,16 @@
 					"name": "編輯單筆貼文",
 					"request": {
 						"method": "PATCH",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyYTVjZjFiYzUzZGJlNGVmMDdjYzYxMCIsImlhdCI6MTY1NTAzNTAyMiwiZXhwIjoxNjU1MTIxNDIyfQ.K3pq_8jth2lgpgH-rdKfGxETpDq2JUIOrk0p3clALoU",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"content\": \"貼文發文測試 new\",\n    \"user\": \"62a38dfa56782db9bc0b580c\"\n}",
+							"raw": "{\n    \"content\": \"modify post test by larry\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -136,6 +166,196 @@
 									"key": "id",
 									"value": null
 								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "取得所有用戶列表",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyYTVjZjM0YzUzZGJlNGVmMDdjYzYxMyIsImlhdCI6MTY1NTAzMzc0MywiZXhwIjoxNjU1MTIwMTQzfQ.mOxAjXORHcfOqC0AVEifHN_SUjNozl53cEKp7L8u1QQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://polar-wave-20436.herokuapp.com/users",
+							"protocol": "https",
+							"host": [
+								"polar-wave-20436",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "會員註冊",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"katty\",\n    \"email\": \"katty@gmail.com\",\n    \"password\": \"katty123\",\n    \"confirmPassword\": \"katty123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://polar-wave-20436.herokuapp.com/users/register",
+							"protocol": "https",
+							"host": [
+								"polar-wave-20436",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "會員登入",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"larry@gmail.com\",\n    \"password\": \"larry123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://polar-wave-20436.herokuapp.com/users/login",
+							"protocol": "https",
+							"host": [
+								"polar-wave-20436",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "取得個人資料",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyYTVkN2U5YzJjMzNiZjllODZiMjI3NCIsImlhdCI6MTY1NTAzNTg4MiwiZXhwIjoxNjU1MTIyMjgyfQ.D_zvVl--GPfJfdPLOESE99wHCiv86a9V-izj4Hx_Dsg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://polar-wave-20436.herokuapp.com/users/profile",
+							"protocol": "https",
+							"host": [
+								"polar-wave-20436",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改個人資料",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyYTVjZjFiYzUzZGJlNGVmMDdjYzYxMCIsImlhdCI6MTY1NTAzNjIwNiwiZXhwIjoxNjU1MTIyNjA2fQ.rCqho-EYOvC1tu_tM8q06PkJWKoIozV6ya1Adgy7ywU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"larry\",\n    \"avatar\": \"\",\n    \"gender\": \"male\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://polar-wave-20436.herokuapp.com/users/profile",
+							"protocol": "https",
+							"host": [
+								"polar-wave-20436",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改密碼",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyYTVkNTcyYzJjMzNiZjllODZiMjI1NiIsImlhdCI6MTY1NTAzNTI1MCwiZXhwIjoxNjU1MTIxNjUwfQ.N0ko_auJOOXJspX65Tq3rWBZpbbLt51-DeFoMdxubac",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"amber123\",\n    \"confirmPassword\": \"amber123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://polar-wave-20436.herokuapp.com/users/update-password",
+							"protocol": "https",
+							"host": [
+								"polar-wave-20436",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"update-password"
 							]
 						}
 					},

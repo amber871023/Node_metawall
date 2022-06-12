@@ -109,7 +109,7 @@ const userId = req.user.id
     if (!avatar && !gender) {
       return next(appError(400, '欄位未填寫正確', next))
     }
-    const newProfile = await User.findOneAndUpdate({user: userId }, {
+    const newProfile = await User.findByIdAndUpdate( userId , {
       name, avatar, gender },
       { 
         returnDocument: 'after',
