@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 //Controller
 const PostsControllers = require('../controllers/postsController')
+//service
+const { isAuth } = require('../service/auth.js')
 
 /* GET home page. */
 // router.get('/', function(req, res, next) {
@@ -10,13 +12,13 @@ const PostsControllers = require('../controllers/postsController')
 
 router
   .route('/')
-  .get(PostsControllers.getPosts)
-  .post(PostsControllers.createPost)
-  .delete(PostsControllers.deletePosts)
+  .get(isAuth, PostsControllers.getPosts)
+  .post(isAuth, PostsControllers.createPost)
+  .delete(isAuth, PostsControllers.deletePosts)
   
 router
   .route('/:id')
-  .patch(PostsControllers.updatePost)
-  .delete(PostsControllers.deletePost)
+  .patch(isAuth, PostsControllers.updatePost)
+  .delete(isAuth, PostsControllers.deletePost)
 
 module.exports = router;

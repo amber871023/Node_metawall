@@ -18,11 +18,11 @@ const getPosts = handleErrorAsync(async (req, res, next) => {
 
 const createPost = handleErrorAsync(async (req, res, next) => { 
   const post = req.body;
-  if(!post.content || !post.user){
-    return next(appError(400, '貼文內容及使用者為必填',next));
+  post.user = req.user.id;
+  if(!post.content.trim()){
+    return next(appError(400, '貼文內容為必填，且不得為空',next));
   };
-  const checkUser = await User.findById(post.user);
-  if(!checkUser) return next(appError(400, '查無此使用者',next));
+
   const newPost = await Post.create({
     ...post,
   })
@@ -31,7 +31,13 @@ const createPost = handleErrorAsync(async (req, res, next) => {
 
 const updatePost = handleErrorAsync(async (req, res, next) => {
   const postId = req.params.id;
-  const { content, user } = req.body;
+  const { content } = req.body;
+  const user = req.user.id;
+  const checkPoster = await Post.findById(postId);
+  const poster = checkPoster.user.toString()
+  if(poster !== user){
+    return next(appError(400, '您不可以修改其他使用者的貼文',next));
+  }
   if(!content.trim()) return next(appError(400, '貼文內容為必填，且不得為空',next));
   const editedPost = await Post.findOneAndUpdate({
      _id: postId, user},
@@ -55,8 +61,14 @@ const deletePosts = handleErrorAsync(async (req, res, next) => {
 })
 
 const deletePost = handleErrorAsync(async (req, res, next) => { 
-  const id = req.params.id;
-  const deleteOne = await Post.findByIdAndDelete(id);
+  const postId = req.params.id;
+  const checkPoster = await Post.findById(postId);
+  const poster = checkPoster.user.toString()
+  const user = req.user.id;
+  if(poster !== user){
+    return next(appError(400, '您不可以刪除其他使用者的貼文',next));
+  }
+  const deleteOne = await Post.findByIdAndDelete(postId);
   if(!deleteOne) return next(appError(400, '查無此ID，刪除失敗',next));
       
   successHandle(res, '刪除該筆貼文成功', deleteOne);
