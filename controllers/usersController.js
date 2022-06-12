@@ -101,8 +101,7 @@ const getProfile = handleErrorAsync(async (req, res, next) => {
 })
 
 const updateProfile = handleErrorAsync(async (req, res, next) => {
-const userId = req.user.id
-console.log(userId);
+const userId = req.user.id;
     const { name, avatar, gender } = req.body
     if(!name.trim() || !validator.isLength(name, { min: 2 })){
       return next(appError(400, '暱稱為必填，且至少為兩字元', next));
@@ -110,7 +109,7 @@ console.log(userId);
     if (!avatar && !gender) {
       return next(appError(400, '欄位未填寫正確', next))
     }
-    const newProfile = await User.findOneAndUpdate({user: userId }, {
+    const newProfile = await User.findByIdAndUpdate( userId , {
       name, avatar, gender },
       { 
         returnDocument: 'after',
