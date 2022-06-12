@@ -370,21 +370,31 @@
 					"name": "上傳圖片",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyYTVjZjFiYzUzZGJlNGVmMDdjYzYxMCIsImlhdCI6MTY1NTA0NTA5NCwiZXhwIjoxNjU1MTMxNDk0fQ.-QL5hmPefiyDmkkQIu3Sp1b3MLkhq0OVL8d5zMpWLJY",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "formdata",
-							"formdata": []
+							"formdata": [
+								{
+									"key": "",
+									"type": "file",
+									"src": []
+								}
+							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:3000/upload",
-							"protocol": "http",
+							"raw": "https://polar-wave-20436.herokuapp.com/upload",
+							"protocol": "https",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"polar-wave-20436",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"upload"
 							]
