@@ -17,7 +17,20 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: ''
     },
-    createdAt: {
+    gender: {
+      type: String,
+      enum: ['male', 'female']
+    },
+    password: {
+      type: String,
+      required: [true, '請輸入密碼'],
+      minlength: [8, '密碼至少 8 碼以上'],
+      select: false
+    },
+    createdAt: { //轉為 Timestamp
+      type: Number,
+    },
+    updatedAt: { //轉為 Timestamp
       type: Number,
     },
   },
