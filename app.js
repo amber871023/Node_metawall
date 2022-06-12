@@ -6,6 +6,7 @@ const cors = require('cors');
 
 var postsRouter = require('./routes/posts');
 var usersRouter = require('./routes/users');
+const uploadRouter = require('./routes/upload');
 
 var app = express();
 require('./connections');
@@ -27,6 +28,7 @@ process.on('uncaughtException', err => {
 
 app.use('/posts', postsRouter);
 app.use('/users', usersRouter);
+app.use('/upload', uploadRouter);
 
 app.use(function(req, res, next) {
   res.status(404).send({
